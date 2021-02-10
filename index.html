@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link href="/tailwind.css" rel="stylesheet">
+
+ </head>
+
+<body>
+  <div id="app" >
+<div class="bg-green-100 ">
+    <div class="py-7 mb-4 mx-auto font-mono text-2xl text-center " >Photo Gallery ({{ unclickHeart }})</div>
+   <div  v-for="(photo,index) in photos" class="mx-auto"> 
+   
+   <img class="h-48 mx-auto border-8 border-white flex flex-col" :src="photo.image" v-on:click=" clickHeart(index)"  />
+   <div class="mx-auto mt-4 pb-3 content-center font-mono text-2xl text-center">{{photo.article}}</div>
+     <div class=" mx-auto flex" >
+     <i class="mx-auto mb-4 material-icons text-red-500"  v-show="photo.done"> favorite</i>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
