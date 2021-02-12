@@ -30,7 +30,7 @@
     <div class="py-7 mb-4 mx-auto font-mono text-3xl text-center font-mono font-extrabold text-red-100" >Photo Gallery ({{ unclickHeart }})</div>
   <!---->
 
-      <ul class="grid grid-cols-2 gap-y-10 ml-10 lg:grid-cols-5">
+      <ul class="grid grid-cols-2 gap-y-10 ml-10 lg:grid-cols-3">
         <li v-for="(photo, index) in photos" class="mx-auto">
           <p class="mx-auto pb-3 content-center font-mono text-2xl text-center text-black">{{photo.article}}</p>
           <img :src="photo.src" v-on:click=" clickHeart(index)"  class="h-52 w-82 border-8 border-white" :alt="photo.title">
