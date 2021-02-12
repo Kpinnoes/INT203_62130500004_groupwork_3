@@ -25,20 +25,35 @@
 
 <body>
   <div id="app" >
-<div class="bg-green-100 ">
-    <div class="py-7 mb-4 mx-auto font-mono text-2xl text-center " >Photo Gallery ({{ unclickHeart }})</div>
-   <div  v-for="(photo,index) in photos" class="mx-auto"> 
-   
-   <img class="h-48 mx-auto border-8 border-white flex flex-col" :src="photo.image" v-on:click=" clickHeart(index)"  />
-   <div class="mx-auto mt-4 pb-3 content-center font-mono text-2xl text-center">{{photo.article}}</div>
-     <div class=" mx-auto flex" >
-     <i class="mx-auto mb-4 material-icons text-red-500"  v-show="photo.done"> favorite</i>
-       
-      </div>
-    </div>
-  </div>
-</div>
+<div class="bg-gradient-to-b from-blue-600 to-white pb-20">
+  <img src="images/12.jpg" class=" ">
+    <div class="py-7 mb-4 mx-auto font-mono text-3xl text-center font-mono font-extrabold text-red-100" >Photo Gallery ({{ unclickHeart }})</div>
+  <!---->
 
+      <ul class="grid grid-cols-2 gap-y-10 ml-10 lg:grid-cols-5">
+        <li v-for="(photo, index) in photos" class="mx-auto">
+          <p class="mx-auto pb-3 content-center font-mono text-2xl text-center text-black">{{photo.article}}</p>
+          <img :src="photo.src" v-on:click=" clickHeart(index)"  class="h-52 w-82 border-8 border-white" :alt="photo.title">
+          <div class="flex flex-row justify-start space-x-1">
+            <p v-if="photo.like > 0"> X
+            </p>
+       
+            <button @click="favorite(index)" class=" focus:outline-none " v-show="photo.done">
+              <!-- "you can use "class = fill-current text-red-500" for changing to red color, original is black -->
+              <svg class="" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </button>
+
+          </div>
+        </li>
+      </ul>
+</div>
+    <!---->
+  
+   
 
 
   <!-- my main.js -->
